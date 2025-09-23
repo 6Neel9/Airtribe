@@ -1,12 +1,11 @@
-function p1(){
+function p1() {
     var a = 20;
-    function c1(){
+    function c1() {
         let a = 10;
         console.log(a);
-        function c2(){
+        function c2() {
             console.log(a);
-            a=30;
-            
+            a = 30;
         }
         c2();
         console.log(a);
