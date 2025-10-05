@@ -1,10 +1,22 @@
 function twoPointer(arr, target) {
-
+    let s = 0;
+    let end = arr.length - 1;
+    while(s<=end){
+        const cur = arr[s] + arr[end];
+        if(cur == target){
+            return [s+1,end+1]
+        }else if (cur<target){
+            s++
+        }else{
+            end--
+        }
+    }
+    return [-1,-1]
 }
 
 const arr = [1, 2, 3, 4, 6];
 const target = 6;
-// console.log(twoPointer(arr, target)); // [1, 3]
+console.log(twoPointer(arr, target)); // [1, 3]
 
 //28.09.2025 (Recursion)
 function recurtionPrint(n) {
@@ -36,3 +48,8 @@ function fibonacci(n) {
 // console.log(fibonacci(5));
 
 // problem 198 leetcode (practice)
+
+
+
+// Backtracking -->>
+//After Recursion backward retracing is called backtracking
