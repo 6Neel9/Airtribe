@@ -20,10 +20,10 @@ const target = 6;
 
 //28.09.2025 (Recursion)
 function recurtionPrint(n) {
-    if (n <= 0) return;
+    // if (n <= 0) return;
     console.log(n);
     recurtionPrint(n - 1);
-    console.log('post recusion call', n)
+    // console.log('post recusion call', n)
     return;
 
 }
@@ -89,7 +89,7 @@ function merge(arr, s, mid, e) {
 
 // ✅ Usage
 const arr1 = [6, 5, 4, 3, 2, 1];
-console.log(mergeSort(arr1, 0, arr1.length - 1)); // [1, 2, 3, 4, 5, 6]
+// console.log(mergeSort(arr1, 0, arr1.length - 1)); // [1, 2, 3, 4, 5, 6]
 
 
 // Ankush Merge
@@ -198,4 +198,88 @@ function quickSort(a, s, e) {
     
 }
 quickSort(a, 0, a.length - 1); 
-console.log(a)
+// console.log(a)
+
+
+// Linked List
+class Node {
+    constructor(data) {
+        this.data = data; 
+        this.next = null; 
+    }
+}
+
+let head = new Node(10); 
+
+head = insertAtHead(head, new Node(20)); 
+head = insertAtHead(head, new Node(30)); 
+head = insertAfterKNode(head, new Node(40), 2)
+head = insertAfterKNode(head, new Node(33), 2)
+head = insertAfterKNode(head, new Node(44), 2)
+head = deleteKthNode(head, 3)
+// head = deleteAtHead(head); 
+function printLL(head) {
+    let itr = head; 
+    while (itr != null) {
+        console.log(itr.data);
+        itr = itr.next; 
+    }
+    return;
+}
+
+printLL(head)
+
+function insertAtHead(head, node) {
+    node.next = head; 
+    return node; 
+}
+
+function insertAfterKNode(head, node, k) {
+    // pos == 0
+    if (k === 0)
+    return insertAtHead(head, node); 
+    
+    let itr = head; 
+    // k--; 
+    while (k-- > 1 && itr !== null) {
+        itr = itr.next; 
+        // k--
+    }
+    
+    if (itr === null) {
+        console.log("k greater than the length of list"); 
+        return head; 
+    }
+    if (itr.next === null) {
+        // insert at tail HW
+        return head; 
+    }
+    console.log({node, next: itr.next, itr})
+    node.next = itr.next; 
+    itr.next = node; 
+    return head; 
+}
+
+function deleteAtHead(head) {
+    let temp = head.next; 
+    head.next = null; 
+    return temp; 
+}
+
+function deleteKthNode(head, k) {
+    let prev = null; 
+    let itr = head; 
+    while (k-- > 1 && itr != null) {
+        prev = itr; 
+        itr = itr.next; 
+    }
+    
+    prev.next = itr.next; 
+    itr.next = null; 
+    
+    return head; 
+}
+
+
+
+// console.log(head.data);
