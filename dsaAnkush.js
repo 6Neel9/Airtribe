@@ -283,3 +283,77 @@ function deleteKthNode(head, k) {
 
 
 // console.log(head.data);
+
+
+
+// Stack Data Structure
+class Stack {
+    constructor() {
+        this.stack = []; 
+    }
+    
+    push(e) {
+        this.stack.push(e); 
+    }
+    
+    pop() {
+        if (this.stack.length) {
+            this.stack.pop(); 
+        }
+    }
+    
+    top() {
+         if (this.stack.length) {
+            return this.stack[this.stack.length - 1]; 
+        }
+    }
+    
+    empty() {
+        return this.stack.length === 0; 
+    }
+}; 
+
+
+
+const stack = new Stack(); 
+stack.push(1) 
+stack.push(2) 
+stack.push(3)
+stack.pop()
+console.log(stack.top())
+
+// Queue
+class Queue {
+    constructor() {
+        this.queue = []; 
+    }
+    
+    push(e) {
+        this.queue.push(e); 
+    }
+    
+    pop() {
+        if (this.queue.length) {
+            this.queue.shift(); 
+        }
+    }
+    
+    front() {
+         if (this.queue.length) {
+            return this.queue[0]; 
+        }
+    }
+    
+    empty() {
+        return this.queue.length === 0; 
+    }
+};
+
+
+const que = new Queue(); 
+que.push(1)
+que.push(2)
+que.push(3)
+que.push(4)
+que.pop()
+console.log(que.front())
